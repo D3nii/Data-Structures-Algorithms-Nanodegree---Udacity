@@ -1,0 +1,72 @@
+Explanation to Problems:
+
+Please note that 'n' is the size of the input in all cases.
+
+//-----------------------------------------------------------
+Problem 1 - LRU Cache
+
+I think a Linked List solves the LRU Cache problem quite nicely. The Least Recently Used item can be the trailing tail of a Linked list. If you always remove and prepend an item to the list, the head will have the most recently used item. Thus if you reach capacity, you simply pop off the tail and keep going.
+
+The dictionary acts as a quick cached way to retrieve values from the linked list without having to actually traverse it.
+
+Since the get and set operations are constant time, our Big O Notation is O(1). Space complexity consists of a node list and a cache dictionary, so our Big O there is O(2n).
+
+Big O Notation Time: O(1) Space: O(n)
+
+
+//-----------------------------------------------------------
+Problem 2 - File Recursion
+
+Since we have to look through every directory to check each file, the best bet is probably recursion. For my function, I simply print the path if the suffix is a match, otherwise I check if it's a directory. If it is a directory, for each file in the directory, we recursively call the function again.
+
+The time complexity is Big O of N times the number of directories, since for each directory we call our function again. The space complexity can grow exponentially with each recursive call.
+
+Big O Notation Time: O(n) Space: O(n log n)
+
+
+//-----------------------------------------------------------
+Problem 3 - Huffman Encoding/Decoding
+
+The implementation of the Huffmann Algorithm, has consisted as pseudo code tasks were resolved, in the construction of several classes, being:
+
+Node
+Queue
+Tree
+HuffmanEncoder
+
+This has allowed to have a more encapsulated development, as well as, providing the project with a more consistent structure. The compressing algorithm has shown, for the tested example a reduction of almost 50% of its size.
+
+In respects to the study of the time complexity, would be O(Ln), being L the maximum length of a codeword; more references see here. If I had not used a built it function for sorting the input that takes O(n*log(n)); ending up the time complexity being O(n*log(n)). In respects to the space complexity, it is directly related to the size of the employed alphabet, in this case k, resulting in O(k).
+
+
+//-----------------------------------------------------------
+Problem 4 - Users in Group
+
+This problem is a bit unclear. I wasn't sure if it was asking us to find a user if nested within a group. But I solved for that since that could use recursion. If the user is in the group we return True. Else, for every group in the group we call our function again and search through users.
+
+Big O Notation Time & Space: O(n) No matter the size of users and groups, we have to search through them all recursively to find our user. We use two arrays to store our users and groups, so our Big O grows as simple multiples of these for space.
+
+
+//-----------------------------------------------------------
+Problem 5 - BlockChain
+
+Our Blockchain problem is really just a node and a linked list. Each node in the list points to the next, while also storing the hash of itself, and its previous hash.
+
+Since we merely iterate through a linked list, and do some hashing functions, the Big O for time should be a simple O(1). And Big O for space is 1 for our hash sha and 1 for our linked list: O(2n). Big O Notation Time: 
+- append: O(1)
+- search: O(n)
+- size: O(n)
+- to_list: O(n) 
+and Space: O(n)
+
+Problem 6 - Union and Intersection
+
+For the union and intersection problem, the approach has been to transform the linked lists, a format which is harder to work with, on something much simpler as is a list. Once the transformation has been done, the combination with the handy object sets, has done all the work.
+
+Time and Space complexity
+
+In the study of the time complexity, we find that the transformation from linked list to list, takes O(n) time complexity, the the set function is in the same or less order of magnitude, as for the variations:
+
+Union: we find the creation of the final array, again O(n), making n*O(n) be resulting to O(n)
+Intersection: we find the creation of the final array, which is a double for-loop (operation x in s, acts with O(n)), resulting finally in O(n^n)
+In respect to the space time complexity, we generate for both functions, 3 auxiliary lists, being O(3n); and resulting in O(n).
